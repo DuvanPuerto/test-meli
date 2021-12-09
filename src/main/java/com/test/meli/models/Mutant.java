@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class Mutant implements IMutant{
     /*
-
     El método recorre posición a posición la "matriz" de carácteres, valiéndose de la condición del tamaño NxN
     se intenta que en un solo recorrido de toda la matriz se haga la evaluación de las repeticiones.
 
@@ -13,11 +12,9 @@ public class Mutant implements IMutant{
     esta evaluación.
     */
 
-
     public boolean isMutant(String[] dna){
         int counterHorizontal, counterVertical, counterDiagonal;
         int flagMutant = 0;
-
         for (int i=0; i<dna.length;i++){
             counterHorizontal = 0;
             counterVertical = 0;
@@ -28,7 +25,6 @@ public class Mutant implements IMutant{
 
                     //=============================== EVALUACIÓN DE HORIZONTALES ================================
 
-
                     if(dna[i].charAt(j) == dna[i].charAt(j+1)){
                         counterHorizontal++;
                     }else{
@@ -37,14 +33,13 @@ public class Mutant implements IMutant{
                     if(counterHorizontal >= 3){
                         flagMutant++;
                         counterHorizontal = 0;
-                        System.out.println("%%%%%%%% Detectado Horizontal %%%%%%%%");
+                        System.out.println("%%%%%%%% Horizontal Sequence Detected %%%%%%%%");
                         if(flagMutant > 1) return true; //Si hay más de una secuencia de 4 carácteres, salga de la función
                     }
 
 
 
                     //=============================== EVALUACIÓN DE VERTICALES ================================
-
 
                     if(dna[j].charAt(i) == dna[j+1].charAt(i)){
                         counterVertical++;
@@ -54,7 +49,7 @@ public class Mutant implements IMutant{
                     if(counterVertical >= 3){
                         flagMutant++;
                         counterVertical = 0;
-                        System.out.println("%%%%%%%% Detectado Vertical %%%%%%%%");
+                        System.out.println("%%%%%%%% Vertical Sequence Detected %%%%%%%%");
                         if(flagMutant > 1) return true;
                     }
 
@@ -73,18 +68,14 @@ public class Mutant implements IMutant{
                             if(counterDiagonal >= 3){
                                 flagMutant++;
                                 counterDiagonal = 0;
-                                System.out.println("%%%%%%%% Detectado Diagonal %%%%%%%%");
+                                System.out.println("%%%%%%%% Diagonal Sequence Detected %%%%%%%%");
                                 if(flagMutant > 1) return true;
                             }
                         }
                     }
-
-                    //System.out.println("============================================");
                 }
-
             }
         }
-
         return false;
     }
 
