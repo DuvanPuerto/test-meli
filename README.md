@@ -18,11 +18,24 @@ Se realizaron algunos test unitarios con diferentes casos para verificar que los
 
 Para la persistencia de los adn se eligió una base de datos orientada a documentos como lo es MongoDB, debido a la naturaleza de los datos y a que los arreglos de adn podrían a llegar a variar en tamaño.
 
+## EJECUCIÓN DE LA API
+
+La api al ser desarrollada en Java 8, con SpringBoot y con el sistema de dependencias Maven, puede ser empaquetado en un .jar con el comando "mvn package" y ser ejecutado por cualquier servidor que soporte este tipo de archivo. En este caso se eligió utilizar docker para contenerizar la aplicación y se subio la imagen a dockerhub, donde se puede encontrar con el nombre "oscarpuerto/test-meli".
+
+Para ejecutarlo en cualquier máquina que tenga docker instalado, se puede usar el comando:
+
+docker run -d -p 80:8080 oscarpuerto/test-meli:1.0
+
+Si se quiere construir una imagen propia puede clonar el repositorio y ejecutar el comando "docker build ." en una cli que se encuentre ubicada en la raíz del proyecto, aunque antes debe modificar el arhcivo application.properties con la url de conexión a su base de datos de MondoDB.
+
+## CONSUMO DE LA API
+
 Como Hosting se plantea usar MongoDB Atlas para la base de datos y una plataforma cloud como hosting de aplicación. En este caso se eligieron dos alternativas: Una IaaS como lo es AWS EC2 corriendo un contenedor de la aplicación en docker y una PaaS como lo es Heroku que compila y corre directamente el código. En este caso, como se está trabajando sobre la capa Free Tier de AWS, el rendimiento percibido es un poco mejor en Heroku, pero por supuesto es debido a la calidad de la infraestructura sobre la cual está corriendo el contenedor de EC2.
 
 Los endpoint para el consumo de estas apis son los siguientes:
 
 ### Heroku -> POST https://test-meli-duvan.herokuapp.com/mutant
+### AWS EC2 -> POST http://ec2-54-224-163-238.compute-1.amazonaws.com/mutant
 
 Esta operación permite evaluar un adn (dna) y devolver como respuesta si es un mutante o no lo es. El body debe tener la siguiente estructura:
 
@@ -33,6 +46,7 @@ Esta operación permite evaluar un adn (dna) y devolver como respuesta si es un 
 Donde la key "dna" es requerida y el value debe ser un array de strings, todos los strings deben tener el mismo número de caracteres y este número debe ser igual también al tamaño del array. De lo contrario la operación va a devolver un error de Bad Request.
 
 ### Heroku -> GET https://test-meli-duvan.herokuapp.com/stats
+### AWS EC2 -> GET http://ec2-54-224-163-238.compute-1.amazonaws.com/stats
 
 Esta operación devuelve las estadísticas de los adn (dna) que han sido evaluados previamente por la aplicación. No necesita ningún parámetro adicional.
 
