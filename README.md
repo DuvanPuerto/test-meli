@@ -10,11 +10,11 @@ La solución planteada fue recorrer el arreglo de strings con dos bucles anidado
 
 A grandes rasgos el algoritmo recorre la "matriz" como se muestra en la siguiente imagen, donde hay un análisis horizontal y vertical que se ejecutan consecutivamente y un análisis diagonal que se ejecuta en determinadas condiciones, pero que requiere de un bucle extra, por lo que es un poco más costoso computacionalmente hablando. Una forma de mejorar la velocidad de este algoritmo podría ser ejecutarlo en multihilo, pero no se quiso agregar más complejidad al método.
 
-
+![Imagen Recorrido Algoritmo](recorrido-matriz.gif "Recorrido Algoritmo")
 
 Se realizaron algunos test unitarios con diferentes casos para verificar que los métodos hagan correctamente su trabajo, principalmente el método de detección de mutantes que es el núcleo de la aplicación. El test coverage integrado de Intellij Idea arrojó un 91% de cobertura como se puede observar a continuación: 
 
-
+![Imagen Test Coverage](test-coverage.png "Test Coverage")
 
 Para la persistencia de los adn se eligió una base de datos orientada a documentos como lo es MongoDB, debido a la naturaleza de los datos y a que los arreglos de adn podrían a llegar a variar en tamaño.
 
