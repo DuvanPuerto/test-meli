@@ -34,8 +34,10 @@ Como Hosting se plantea usar MongoDB Atlas para la base de datos y una plataform
 
 Los endpoint para el consumo de estas apis son los siguientes:
 
-### Heroku -> POST https://test-meli-duvan.herokuapp.com/mutant
-### AWS EC2 -> POST http://ec2-54-224-163-238.compute-1.amazonaws.com/mutant
+### Evaluación de ADN
+
+#### Heroku -> POST https://test-meli-duvan.herokuapp.com/mutant
+#### AWS EC2 -> POST http://ec2-54-224-163-238.compute-1.amazonaws.com/mutant
 
 Esta operación permite evaluar un adn (dna) y devolver como respuesta si es un mutante o no lo es. El body debe tener la siguiente estructura:
 
@@ -45,8 +47,12 @@ Esta operación permite evaluar un adn (dna) y devolver como respuesta si es un 
 
 Donde la key "dna" es requerida y el value debe ser un array de strings, todos los strings deben tener el mismo número de caracteres y este número debe ser igual también al tamaño del array. De lo contrario la operación va a devolver un error de Bad Request.
 
-### Heroku -> GET https://test-meli-duvan.herokuapp.com/stats
-### AWS EC2 -> GET http://ec2-54-224-163-238.compute-1.amazonaws.com/stats
+### Estadísticas de la API
+
+Donde la key "dna" es requerida y el value debe ser un array de strings, todos los strings deben tener el mismo número de caracteres y este número debe ser igual también al tamaño del array. De lo contrario la operación va a devolver un error de Bad Request.sti
+
+#### Heroku -> GET https://test-meli-duvan.herokuapp.com/stats
+#### AWS EC2 -> GET http://ec2-54-224-163-238.compute-1.amazonaws.com/stats
 
 Esta operación devuelve las estadísticas de los adn (dna) que han sido evaluados previamente por la aplicación. No necesita ningún parámetro adicional.
 
