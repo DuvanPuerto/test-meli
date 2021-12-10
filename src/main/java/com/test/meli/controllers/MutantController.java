@@ -15,12 +15,12 @@ import java.util.Map;
 @RequestMapping("/")
 public class MutantController {
 
-    @Autowired
     private IDnaRepository iDnaRepository;
 
     private IMutant iMutant;
 
-    MutantController(IMutant iMutant){
+    MutantController(IMutant iMutant, IDnaRepository iDnaRepository){
+        this.iDnaRepository = iDnaRepository;
         this.iMutant = iMutant;
     }
 

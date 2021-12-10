@@ -18,28 +18,4 @@ public class Dna {
     private String[] dna;
 
     private boolean mutant;
-
-    public String getIdDna() {
-        return idDna;
-    }
-
-    public void setIdDna(String idDna) {
-        this.idDna = idDna;
-    }
-
-    public String[] getDna() {
-        return dna;
-    }
-
-    public void setDna(String[] dna) {
-        this.dna = dna;
-    }
-
-    public boolean isMutant() {
-        return mutant;
-    }
-
-    public void setMutant(boolean mutant) {
-        this.mutant = mutant;
-    }
 }
