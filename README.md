@@ -49,8 +49,6 @@ Donde la key "dna" es requerida y el value debe ser un array de strings, todos l
 
 ### Estadísticas de la API
 
-Donde la key "dna" es requerida y el value debe ser un array de strings, todos los strings deben tener el mismo número de caracteres y este número debe ser igual también al tamaño del array. De lo contrario la operación va a devolver un error de Bad Request.sti
-
 #### Heroku -> GET https://test-meli-duvan.herokuapp.com/stats
 #### AWS EC2 -> GET http://ec2-54-224-163-238.compute-1.amazonaws.com/stats
 
